@@ -22,6 +22,13 @@
 		7DE25BA6184C09DE00D7FE99 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7DE25B8A184C09DE00D7FE99 /* CoreData.framework */; };
 		7DE25BAE184C09DE00D7FE99 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7DE25BAC184C09DE00D7FE99 /* InfoPlist.strings */; };
 		7DE25BB0184C09DE00D7FE99 /* Task_ListTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DE25BAF184C09DE00D7FE99 /* Task_ListTests.m */; };
+		7DE25BBB184C0AC300D7FE99 /* Task.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DE25BBA184C0AC300D7FE99 /* Task.m */; };
+		7DE25BBF184C0B7300D7FE99 /* iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7DE25BBE184C0B7300D7FE99 /* iPhone.storyboard */; };
+		7DE25BC2184C0BC300D7FE99 /* TLCoreDataHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DE25BC1184C0BC300D7FE99 /* TLCoreDataHelper.m */; };
+		7DE25BC5184C0C5A00D7FE99 /* TLTaskListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DE25BC4184C0C5A00D7FE99 /* TLTaskListVC.m */; };
+		7DE25BC8184C0C7500D7FE99 /* TLEditTaskVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DE25BC7184C0C7500D7FE99 /* TLEditTaskVC.m */; };
+		7DE25BCB184C0CD700D7FE99 /* TLTaskDetailsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DE25BCA184C0CD700D7FE99 /* TLTaskDetailsVC.m */; };
+		7DE25BCE184C0CFA00D7FE99 /* TLAddTaskVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DE25BCD184C0CFA00D7FE99 /* TLAddTaskVC.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +60,19 @@
 		7DE25BAB184C09DE00D7FE99 /* Task ListTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Task ListTests-Info.plist"; sourceTree = "<group>"; };
 		7DE25BAD184C09DE00D7FE99 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		7DE25BAF184C09DE00D7FE99 /* Task_ListTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Task_ListTests.m; sourceTree = "<group>"; };
+		7DE25BB9184C0AC300D7FE99 /* Task.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Task.h; sourceTree = "<group>"; };
+		7DE25BBA184C0AC300D7FE99 /* Task.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Task.m; sourceTree = "<group>"; };
+		7DE25BBE184C0B7300D7FE99 /* iPhone.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = iPhone.storyboard; sourceTree = "<group>"; };
+		7DE25BC0184C0BC300D7FE99 /* TLCoreDataHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TLCoreDataHelper.h; sourceTree = "<group>"; };
+		7DE25BC1184C0BC300D7FE99 /* TLCoreDataHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TLCoreDataHelper.m; sourceTree = "<group>"; };
+		7DE25BC3184C0C5A00D7FE99 /* TLTaskListVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TLTaskListVC.h; sourceTree = "<group>"; };
+		7DE25BC4184C0C5A00D7FE99 /* TLTaskListVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TLTaskListVC.m; sourceTree = "<group>"; };
+		7DE25BC6184C0C7500D7FE99 /* TLEditTaskVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TLEditTaskVC.h; sourceTree = "<group>"; };
+		7DE25BC7184C0C7500D7FE99 /* TLEditTaskVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TLEditTaskVC.m; sourceTree = "<group>"; };
+		7DE25BC9184C0CD700D7FE99 /* TLTaskDetailsVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TLTaskDetailsVC.h; sourceTree = "<group>"; };
+		7DE25BCA184C0CD700D7FE99 /* TLTaskDetailsVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TLTaskDetailsVC.m; sourceTree = "<group>"; };
+		7DE25BCC184C0CFA00D7FE99 /* TLAddTaskVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TLAddTaskVC.h; sourceTree = "<group>"; };
+		7DE25BCD184C0CFA00D7FE99 /* TLAddTaskVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TLAddTaskVC.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,10 +135,10 @@
 		7DE25B8C184C09DE00D7FE99 /* Task List */ = {
 			isa = PBXGroup;
 			children = (
-				7DE25B95184C09DE00D7FE99 /* TLAppDelegate.h */,
-				7DE25B96184C09DE00D7FE99 /* TLAppDelegate.m */,
 				7DE25B9B184C09DE00D7FE99 /* Images.xcassets */,
-				7DE25B98184C09DE00D7FE99 /* Task_List.xcdatamodeld */,
+				7DE25BBE184C0B7300D7FE99 /* iPhone.storyboard */,
+				7DE25BBD184C0AFF00D7FE99 /* View Controllers */,
+				7DE25BBC184C0AD400D7FE99 /* Core Data */,
 				7DE25B8D184C09DE00D7FE99 /* Supporting Files */,
 			);
 			path = "Task List";
@@ -127,6 +147,8 @@
 		7DE25B8D184C09DE00D7FE99 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				7DE25B95184C09DE00D7FE99 /* TLAppDelegate.h */,
+				7DE25B96184C09DE00D7FE99 /* TLAppDelegate.m */,
 				7DE25B8E184C09DE00D7FE99 /* Task List-Info.plist */,
 				7DE25B8F184C09DE00D7FE99 /* InfoPlist.strings */,
 				7DE25B92184C09DE00D7FE99 /* main.m */,
@@ -151,6 +173,33 @@
 				7DE25BAC184C09DE00D7FE99 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		7DE25BBC184C0AD400D7FE99 /* Core Data */ = {
+			isa = PBXGroup;
+			children = (
+				7DE25BC0184C0BC300D7FE99 /* TLCoreDataHelper.h */,
+				7DE25BC1184C0BC300D7FE99 /* TLCoreDataHelper.m */,
+				7DE25B98184C09DE00D7FE99 /* Task_List.xcdatamodeld */,
+				7DE25BB9184C0AC300D7FE99 /* Task.h */,
+				7DE25BBA184C0AC300D7FE99 /* Task.m */,
+			);
+			name = "Core Data";
+			sourceTree = "<group>";
+		};
+		7DE25BBD184C0AFF00D7FE99 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				7DE25BC6184C0C7500D7FE99 /* TLEditTaskVC.h */,
+				7DE25BC7184C0C7500D7FE99 /* TLEditTaskVC.m */,
+				7DE25BC9184C0CD700D7FE99 /* TLTaskDetailsVC.h */,
+				7DE25BCA184C0CD700D7FE99 /* TLTaskDetailsVC.m */,
+				7DE25BCC184C0CFA00D7FE99 /* TLAddTaskVC.h */,
+				7DE25BCD184C0CFA00D7FE99 /* TLAddTaskVC.m */,
+				7DE25BC3184C0C5A00D7FE99 /* TLTaskListVC.h */,
+				7DE25BC4184C0C5A00D7FE99 /* TLTaskListVC.m */,
+			);
+			name = "View Controllers";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -230,6 +279,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7DE25B91184C09DE00D7FE99 /* InfoPlist.strings in Resources */,
+				7DE25BBF184C0B7300D7FE99 /* iPhone.storyboard in Resources */,
 				7DE25B9C184C09DE00D7FE99 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -249,9 +299,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7DE25BBB184C0AC300D7FE99 /* Task.m in Sources */,
 				7DE25B97184C09DE00D7FE99 /* TLAppDelegate.m in Sources */,
+				7DE25BC5184C0C5A00D7FE99 /* TLTaskListVC.m in Sources */,
 				7DE25B93184C09DE00D7FE99 /* main.m in Sources */,
+				7DE25BC8184C0C7500D7FE99 /* TLEditTaskVC.m in Sources */,
+				7DE25BCE184C0CFA00D7FE99 /* TLAddTaskVC.m in Sources */,
 				7DE25B9A184C09DE00D7FE99 /* Task_List.xcdatamodeld in Sources */,
+				7DE25BCB184C0CD700D7FE99 /* TLTaskDetailsVC.m in Sources */,
+				7DE25BC2184C0BC300D7FE99 /* TLCoreDataHelper.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
