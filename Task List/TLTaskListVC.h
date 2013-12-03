@@ -10,7 +10,7 @@
 #import "TLAddTaskVC.h"
 #import "TLTaskDetailsVC.h"
 
-@interface TLTaskListVC : UIViewController<UITableViewDelegate,UITableViewDataSource,TLAddTaskVCDelegate,TLTaskDetailsVCDelegate>
+@interface TLTaskListVC : UIViewController<UITableViewDataSource,UITableViewDelegate,TLAddTaskVCDelegate,TLTaskDetailsVCDelegate>
 
 @property(strong,nonatomic)NSMutableArray *taskList;
 @property (strong, nonatomic) IBOutlet UITableView *tableView;

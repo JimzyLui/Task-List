@@ -52,6 +52,7 @@
     task.taskDescription = self.taskDetailsTextView.text;
     task.taskDueDate = self.dateDueDatePicker.date;
     task.taskIsCompleted = TASK_NOT_COMPLETED;
+    task.taskIndex = @5000;
     
     NSError *error = nil;
     
@@ -73,13 +74,11 @@
 //}
 
 - (IBAction)saveTaskBarButtonItemPressed:(UIBarButtonItem *)sender {
-    //[self.delegate didAddTask:[self returnNewTaskObject]];
     [self.delegate didAddTask:[self returnNewTaskObject]];
+    //if wish to create multiple entries
+    //self.saveBarButtonItem.title = @"Duplicate";
 }
 
-- (IBAction)cancelBarButtonItemPressed:(UIBarButtonItem *)sender {
-    [self.delegate didCancel];
-}
 
 #pragma mark - UITextFieldDelegate
 -(BOOL)textFieldShouldReturn:(UITextField *)textField

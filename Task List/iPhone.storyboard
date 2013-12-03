@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="13A603" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="nZb-cI-c2A">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="13A603" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="KP1-Ve-ohg">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
     </dependencies>
@@ -16,12 +16,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" alpha="0.69999999999999973" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="pVN-XE-ddv">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="hhy-Wq-WZr">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                <color key="backgroundColor" red="0.30980393290000002" green="0.80392163989999998" blue="0.9450981021" alpha="1" colorSpace="deviceRGB"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" restorationIdentifier="Cell" selectionStyle="default" accessoryType="detailDisclosureButton" indentationWidth="10" reuseIdentifier="Cell" textLabel="GBl-Wv-u4n" detailTextLabel="dQc-NI-eWI" style="IBUITableViewCellStyleSubtitle" id="xKD-Hp-vZ1">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="detailDisclosureButton" indentationWidth="10" reuseIdentifier="Cell" textLabel="GBl-Wv-u4n" detailTextLabel="dQc-NI-eWI" style="IBUITableViewCellStyleSubtitle" id="xKD-Hp-vZ1">
                                         <rect key="frame" x="0.0" y="86" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="xKD-Hp-vZ1" id="Imz-lc-NEh">
@@ -44,9 +44,6 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
-                                        <connections>
-                                            <segue destination="PEE-R2-2U8" kind="push" identifier="toDetailVCSegue" trigger="accessoryAction" id="sQU-eU-qQa"/>
-                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -67,12 +64,13 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="tableView" destination="pVN-XE-ddv" id="wnR-f9-8Pg"/>
+                        <outlet property="tableView" destination="hhy-Wq-WZr" id="b8O-PB-9ID"/>
+                        <segue destination="PEE-R2-2U8" kind="push" identifier="toDetailVCSegue" id="Ede-vU-uh5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nU4-u9-pLv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="635" y="35"/>
+            <point key="canvasLocation" x="1161" y="35"/>
         </scene>
         <!--Add TaskVC - Add Task-->
         <scene sceneID="wBG-8Z-T2G">
@@ -140,13 +138,14 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                     </navigationItem>
                     <connections>
                         <outlet property="dateDueDatePicker" destination="Afo-ER-RjJ" id="mjh-hB-chq"/>
+                        <outlet property="saveBarButtonItem" destination="Jix-Af-qz7" id="on7-kG-X8P"/>
                         <outlet property="taskDetailsTextView" destination="b6j-6q-ueM" id="2LX-zG-UM3"/>
                         <outlet property="taskNameTextField" destination="ajd-la-1bh" id="EZv-fP-fSY"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="g8a-MZ-yZi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1065" y="-327"/>
+            <point key="canvasLocation" x="1591" y="-327"/>
         </scene>
         <!--Task DetailsVC - Task Details-->
         <scene sceneID="fpH-qb-ffV">
@@ -231,7 +230,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="L4X-xZ-eCZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1057" y="382"/>
+            <point key="canvasLocation" x="1583" y="382"/>
         </scene>
         <!--Edit TaskVC - Edit Task-->
         <scene sceneID="dUu-Op-pci">
@@ -320,25 +319,26 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oOf-rJ-3aP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1484" y="382"/>
+            <point key="canvasLocation" x="2010" y="382"/>
         </scene>
         <!--Navigation Controller-->
-        <scene sceneID="uQv-MV-CwC">
+        <scene sceneID="0Lj-MY-pqy">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="nZb-cI-c2A" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="KP1-Ve-ohg" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="FAb-JY-TfI">
+                    <navigationItem key="navigationItem" id="bFR-wH-aWH"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="1ZU-V0-AqI">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="soe-yk-Z3h" kind="relationship" relationship="rootViewController" id="zre-Ay-rCS"/>
+                        <segue destination="soe-yk-Z3h" kind="relationship" relationship="rootViewController" id="Bvb-MF-Hio"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="APh-RG-w0R" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DEL-ll-bpu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="109" y="35"/>
+            <point key="canvasLocation" x="635" y="35"/>
         </scene>
     </scenes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

@@ -22,8 +22,8 @@
 @property (strong, nonatomic) IBOutlet UITextField *taskNameTextField;
 @property (strong, nonatomic) IBOutlet UITextView *taskDetailsTextView;
 @property (strong, nonatomic) IBOutlet UIDatePicker *dateDueDatePicker;
+@property (strong, nonatomic) IBOutlet UIBarButtonItem *saveBarButtonItem;
 
 - (IBAction)saveTaskBarButtonItemPressed:(UIBarButtonItem *)sender;
-- (IBAction)cancelBarButtonItemPressed:(UIBarButtonItem *)sender;
 
 @end

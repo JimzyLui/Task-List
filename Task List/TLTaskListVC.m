@@ -27,11 +27,6 @@
     return _taskList;
 }
 
--(void)loadView
-{
-    [super loadView];
-    NSLog(@"loadView");
-}
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -48,7 +43,6 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
-    NSLog(@"viewDidLoad");
     self.tableView.dataSource = self;  //so tableview protocol knows to send messages to me
     self.tableView.delegate = self;
     /*
@@ -62,7 +56,7 @@
 {
     [super viewWillAppear:animated];
     NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"Task"];
-    fetchRequest.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"taskDueDate" ascending:YES]];
+    fetchRequest.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"taskIndex" ascending:YES]];
     
     NSError *error = nil;
     
@@ -82,11 +76,11 @@
     
     else if([segue.destinationViewController isKindOfClass:[TLTaskDetailsVC class]]){
         TLTaskDetailsVC *detailTaskVC = segue.destinationViewController;
-        
+
         NSIndexPath *path = sender;
+
         Task *taskObject = self.taskList[path.row];
         detailTaskVC.task = taskObject;
-        
         detailTaskVC.delegate = self;
     }    
 }
@@ -120,14 +114,16 @@
     NSLog(@"%@",task.taskName);
     
     NSManagedObjectContext *context = [TLCoreDataHelper managedObjectContext];
-    Task *addTask = [NSEntityDescription insertNewObjectForEntityForName:@"Task" inManagedObjectContext:context];
-    addTask.taskName = task.taskName;
-    addTask.taskDescription = task.taskDescription;
-    addTask.taskCompletionDate = task.taskCompletionDate;
-    addTask.taskDueDate = task.taskDueDate;
-    addTask.taskIsCompleted = task.taskIsCompleted;
-    addTask.taskLastUpdated = task.taskLastUpdated;
-    addTask.taskPriority = task.taskPriority;
+//    Task *addTask = [NSEntityDescription insertNewObjectForEntityForName:@"Task" inManagedObjectContext:context];
+//    addTask.taskName = task.taskName;
+//    addTask.taskDescription = task.taskDescription;
+//    addTask.taskCompletionDate = task.taskCompletionDate;
+//    addTask.taskDueDate = task.taskDueDate;
+//    addTask.taskIsCompleted = task.taskIsCompleted;
+//    addTask.taskLastUpdated = task.taskLastUpdated;
+//    addTask.taskPriority = task.taskPriority;
+//    addTask.taskIndex = [NSNumber numberWithInt:[self.taskList count]];
+    task.taskIndex = [NSNumber numberWithInt:[self.taskList count]];
     
     NSError *error = nil;
     if  (![context save:&error]){
@@ -135,20 +131,22 @@
         NSLog(@"%@",error);
     }
     
-    [self dismissViewControllerAnimated:YES completion:nil];
+    //[self dismissViewControllerAnimated:YES completion:nil];  //if using modal
+    [self.navigationController popViewControllerAnimated:YES];
+
     [self.tableView reloadData];
 }
 
--(void)didCancel
-{
-    [self dismissViewControllerAnimated:YES completion:nil];
-}
+//-(void)didCancel
+//{
+//    [self dismissViewControllerAnimated:YES completion:nil];
+//}
 
 #pragma mark - TLDetailVCDelegate
--(void)didUpdateTask:(Task *)task
+-(void)didUpdateTask
 {
-    [self saveTask:task];
-    [self.navigationController popViewControllerAnimated:YES];
+    [self reIndexArray];
+    //[self.navigationController popViewControllerAnimated:YES];
     [self.tableView reloadData];
 }
 
@@ -166,6 +164,7 @@
 
 -(void)updateCompletionOfTask:(Task *)task forIndexPath:(NSIndexPath *)indexPath
 {
+    NSLog(@"updateCompletionOfTask called");
     if([task.taskIsCompleted  isEqual: TASK_COMPLETED]){
         task.taskIsCompleted = TASK_NOT_COMPLETED;
     } else {
@@ -175,30 +174,25 @@
     NSError *error = nil;
     if (![[task managedObjectContext] save:&error]) {
         //Handle Error
-        NSLog(@"%@", error);
+        NSLog(@"updateCompletionOfTask: Save Error:%@", error);
     }
-    
-    //[taskObjectsPlistArray insertObject:[self taskObjectToPlistDictionary:task] atIndex:indexPath.row];
-    
-    //    [[NSUserDefaults standardUserDefaults] setObject:taskObjectsPlistArray forKey:TASK_NSUSERDEFAULT_KEY];
-    //    [[NSUserDefaults standardUserDefaults] synchronize];
     
     [self.tableView reloadData];
 }
 
--(void)saveTask:(Task *)task
+
+
+-(void)reIndexArray
 {
-    //    NSMutableArray *newTaskObjectsPlistArray = [[NSMutableArray alloc] init];
-    //
-    //    for(int x = 0; x < [self.taskObjects count]; x++){
-    //        [newTaskObjectsPlistArray addObject:[self taskObjectToPlistDictionary:self.taskObjects[x]]];
-    //    }
-    //    [[NSUserDefaults standardUserDefaults] setObject:newTaskObjectsPlistArray forKey:TASK_NSUSERDEFAULT_KEY];
-    //    [[NSUserDefaults standardUserDefaults] synchronize];
-    NSError *error = nil;
-    if (![[task managedObjectContext] save:&error]) {
-        //Handle Error
-        NSLog(@"%@", error);
+    for(int x = 0;x < [self.taskList count]; x++){
+        Task *t = self.taskList[x];
+        NSError *error = nil;
+        if (![[t managedObjectContext] save:&error]) {
+            //Handle Error
+            NSLog(@"%@", error);
+        }
+        t.taskIndex = [NSNumber numberWithInt:x];
+        [self.taskList replaceObjectAtIndex:x withObject:t];
     }
     
 }
@@ -286,10 +280,12 @@
 
 -(void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)sourceIndexPath toIndexPath:(NSIndexPath *)destinationIndexPath
 {
+    NSLog(@"reorder table code called");
     Task *taskObj = [self.taskList objectAtIndex:sourceIndexPath.row];
     [self.taskList removeObjectAtIndex:sourceIndexPath.row];
     [self.taskList insertObject:taskObj atIndex:destinationIndexPath.row];
     
+    [self reIndexArray];
     //NSLog(@"Reordered");
     //[self saveTask:];
 }
@@ -298,5 +294,10 @@
 }
 
 - (IBAction)reorderTaskBarButtonPressed:(UIBarButtonItem *)sender {
+    NSLog(@"reorderTaskBarButtonPressed");
+    if(self.tableView.editing == YES){
+        [self.tableView setEditing:NO animated:YES];
+    }
+    else [self.tableView setEditing:YES animated:YES];
 }
 @end

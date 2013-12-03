@@ -27,7 +27,11 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
-    
+
+}
+
+-(void)viewWillAppear:(BOOL)animated
+{
     //populate the fields
     self.taskNameLabel.text = self.task.taskName;
     self.taskDetailsLabel.text = self.task.taskDescription;
@@ -35,8 +39,6 @@
     
     [self isCompleted:self.task.taskIsCompleted];  //sets switch settings
     
-    
-    //NSLog(@"Details: %@",self.task.taskDescription)
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     [formatter setDateFormat:DATETIME_FORMAT];
     NSString *strDate = [formatter stringFromDate:self.task.taskDueDate];
@@ -69,7 +71,7 @@
         self.isCompletedLabel.text = SWITCH_OFF;
         self.task.taskIsCompleted = TASK_NOT_COMPLETED;
     }
-    [self.delegate didUpdateTask:self.task];
+    [self.delegate didUpdateTask];
 }
 
 
@@ -84,19 +86,18 @@
 {
     if([segue.destinationViewController isKindOfClass:[TLEditTaskVC class]]){
         TLEditTaskVC *editTaskVC = segue.destinationViewController;
-        editTaskVC.task = self.task;
+        editTaskVC.task = self.task;  //so now the task here is 
         editTaskVC.delegate = self;
     }
 }
 
--(void)didUpdateTask:(Task *)task
+-(void)didUpdateTask
 {
     self.taskNameLabel.text = self.task.taskName;
     self.taskDetailsLabel.text = self.task.taskDescription;
-    //[self.taskDetailsLabel sizeToFit];  //doesn't work to top align - save for reference
-    //[self isCompleted:self.task.isCompleted];  //sets switch settings
-    if (self.isCompletedSwitch.on) self.task.taskIsCompleted = TASK_COMPLETED;
-    else self.task.taskIsCompleted = TASK_NOT_COMPLETED;
+
+    if ([self.task.taskIsCompleted  isEqual: TASK_COMPLETED]) self.isCompletedSwitch.on = YES;
+    else self.isCompletedSwitch.on = NO;
     
     
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
@@ -106,7 +107,7 @@
     
     [self.navigationController popViewControllerAnimated:YES];
     
-    [self.delegate didUpdateTask:self.task];
+    [self.delegate didUpdateTask];
 }
 
 @end

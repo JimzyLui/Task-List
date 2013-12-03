@@ -11,7 +11,7 @@
 
 @protocol TLEditTaskVCDelegate <NSObject>
 
--(void)didUpdateTask:(Task *)task;
+-(void)didUpdateTask;
 
 @end
 @interface TLEditTaskVC : UIViewController<UITextFieldDelegate,UITextViewDelegate>

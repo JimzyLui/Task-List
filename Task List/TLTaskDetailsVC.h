@@ -12,7 +12,7 @@
 
 @protocol TLTaskDetailsVCDelegate <NSObject>
 
--(void)didUpdateTask:(Task *)task;
+-(void)didUpdateTask;
 
 @end
 @interface TLTaskDetailsVC : UIViewController<TLEditTaskVCDelegate>

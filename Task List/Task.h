@@ -2,7 +2,7 @@
 //  Task.h
 //  Task List
 //
-//  Created by Jimzy Lui on 12/1/2013.
+//  Created by Jimzy Lui on 12/3/2013.
 //  Copyright (c) 2013 Jimzy Lui. All rights reserved.
 //
 
@@ -19,5 +19,6 @@
 @property (nonatomic, retain) NSNumber * taskIsCompleted;
 @property (nonatomic, retain) NSDate * taskLastUpdated;
 @property (nonatomic, retain) NSDate * taskCompletionDate;
+@property (nonatomic, retain) NSNumber * taskIndex;
 
 @end

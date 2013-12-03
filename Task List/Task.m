@@ -2,7 +2,7 @@
 //  Task.m
 //  Task List
 //
-//  Created by Jimzy Lui on 12/1/2013.
+//  Created by Jimzy Lui on 12/3/2013.
 //  Copyright (c) 2013 Jimzy Lui. All rights reserved.
 //
 
@@ -18,5 +18,6 @@
 @dynamic taskIsCompleted;
 @dynamic taskLastUpdated;
 @dynamic taskCompletionDate;
+@dynamic taskIndex;
 
 @end

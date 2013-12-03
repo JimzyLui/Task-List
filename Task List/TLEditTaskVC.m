@@ -59,16 +59,16 @@
 - (IBAction)isCompletedSwitchChanged:(UISwitch *)sender {
     if (self.isCompletedSwitch.on) {
         self.isCompletedLabel.text = SWITCH_ON;
-        self.task.taskIsCompleted = TASK_COMPLETED;
+        //self.task.taskIsCompleted = TASK_COMPLETED;  //wait till saved
     } else{
         self.isCompletedLabel.text = SWITCH_OFF;
-        self.task.taskIsCompleted = TASK_NOT_COMPLETED;
+        //self.task.taskIsCompleted = TASK_NOT_COMPLETED;  //wait till saved
     }
 }
 
 - (IBAction)saveBarButtonItemPressed:(UIBarButtonItem *)sender {
     [self updateTask];
-    [self.delegate didUpdateTask:self.task];
+    [self.delegate didUpdateTask];
 }
 
 -(void)updateTask
