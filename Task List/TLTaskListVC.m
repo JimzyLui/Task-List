@@ -45,11 +45,6 @@
 	// Do any additional setup after loading the view, typically from a nib.
     self.tableView.dataSource = self;  //so tableview protocol knows to send messages to me
     self.tableView.delegate = self;
-    /*
-    self.view.backgroundColor = [UIColor whiteColor];
-    self.tableView.backgroundColor = [UIColor whiteColor];
-    NSLog(@"My frame is %@", NSStringFromCGRect(self.view.frame));  */
-
 }
 
 -(void)viewWillAppear:(BOOL)animated
@@ -69,6 +64,9 @@
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
+    if(self.tableView.editing == YES)
+        [self.tableView setEditing:NO animated:YES];
+
     if([segue.destinationViewController isKindOfClass:[TLAddTaskVC class]]){
         TLAddTaskVC *addTaskVC = segue.destinationViewController;
         addTaskVC.delegate = self;
@@ -92,18 +90,7 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (IBAction)reorderBarButtonItemPressed:(UIBarButtonItem *)sender
-{
-    if(self.tableView.editing == YES){
-        [self.tableView setEditing:NO animated:YES];
-    }
-    else [self.tableView setEditing:YES animated:YES];
-}
 
-- (IBAction)addTaskBarButtonItemPressed:(UIBarButtonItem *)sender
-{
-    [self performSegueWithIdentifier:@"toAddTaskVCSegue" sender:nil];
-}
 
 #pragma mark - TLAddTaskVCDelegate
 
@@ -111,18 +98,7 @@
 {
     [self.taskList addObject:task];
     
-    NSLog(@"%@",task.taskName);
-    
     NSManagedObjectContext *context = [TLCoreDataHelper managedObjectContext];
-//    Task *addTask = [NSEntityDescription insertNewObjectForEntityForName:@"Task" inManagedObjectContext:context];
-//    addTask.taskName = task.taskName;
-//    addTask.taskDescription = task.taskDescription;
-//    addTask.taskCompletionDate = task.taskCompletionDate;
-//    addTask.taskDueDate = task.taskDueDate;
-//    addTask.taskIsCompleted = task.taskIsCompleted;
-//    addTask.taskLastUpdated = task.taskLastUpdated;
-//    addTask.taskPriority = task.taskPriority;
-//    addTask.taskIndex = [NSNumber numberWithInt:[self.taskList count]];
     task.taskIndex = [NSNumber numberWithInt:[self.taskList count]];
     
     NSError *error = nil;
@@ -137,10 +113,7 @@
     [self.tableView reloadData];
 }
 
-//-(void)didCancel
-//{
-//    [self dismissViewControllerAnimated:YES completion:nil];
-//}
+
 
 #pragma mark - TLDetailVCDelegate
 -(void)didUpdateTask
@@ -280,7 +253,6 @@
 
 -(void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)sourceIndexPath toIndexPath:(NSIndexPath *)destinationIndexPath
 {
-    NSLog(@"reorder table code called");
     Task *taskObj = [self.taskList objectAtIndex:sourceIndexPath.row];
     [self.taskList removeObjectAtIndex:sourceIndexPath.row];
     [self.taskList insertObject:taskObj atIndex:destinationIndexPath.row];
@@ -290,14 +262,20 @@
     //[self saveTask:];
 }
 
-- (IBAction)addTaskBarButtonPressed:(UIBarButtonItem *)sender {
+#pragma mark - IBAction Methods
+
+- (IBAction)addTaskBarButtonPressed:(UIBarButtonItem *)sender
+{
+
 }
 
-- (IBAction)reorderTaskBarButtonPressed:(UIBarButtonItem *)sender {
-    NSLog(@"reorderTaskBarButtonPressed");
+- (IBAction)reorderTaskBarButtonPressed:(UIBarButtonItem *)sender
+{
     if(self.tableView.editing == YES){
         [self.tableView setEditing:NO animated:YES];
     }
     else [self.tableView setEditing:YES animated:YES];
 }
+
+
 @end

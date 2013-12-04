@@ -11,7 +11,7 @@
 
 @protocol TLAddTaskVCDelegate <NSObject>
 
--(void)didCancel;
+//-(void)didCancel;
 -(void)didAddTask:(Task *)task;
 
 @end

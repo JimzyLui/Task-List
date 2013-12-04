@@ -31,6 +31,11 @@
 	// Do any additional setup after loading the view.
     self.taskNameTextField.delegate = self;
     self.taskDetailsTextView.delegate = self;
+    
+    // give a 1 day lead to datepicker
+    NSDate *now = [NSDate date];
+    int daysToAdd = 1;
+    self.dateDueDatePicker.date = [now dateByAddingTimeInterval:60*60*24*daysToAdd];
 }
 
 - (void)didReceiveMemoryWarning
@@ -63,18 +68,19 @@
     return task;
 }
 
-//- (IBAction)addTaskButtonPressed:(UIButton *)sender
-//{
-//    [self.delegate didAddTask:[self returnNewTaskObject]];
-//}
-//
-//- (IBAction)cancelButtonPressed:(UIButton *)sender
-//{
-//    [self.delegate didCancel];
-//}
+
 
 - (IBAction)saveTaskBarButtonItemPressed:(UIBarButtonItem *)sender {
+    if(![self.taskNameTextField.text isEqualToString:@""])
     [self.delegate didAddTask:[self returnNewTaskObject]];
+    else{
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle: @"Missing Task Name"
+                                                        message: @"All tasks must have a name"
+                                                       delegate: nil
+                                              cancelButtonTitle:@"OK"
+                                              otherButtonTitles:nil];
+        [alert show];
+    }
     //if wish to create multiple entries
     //self.saveBarButtonItem.title = @"Duplicate";
 }
