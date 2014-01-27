@@ -7,16 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "TLAddTaskVC.h"
-#import "TLTaskDetailsVC.h"
 
-@interface TLTaskListVC : UIViewController<UITableViewDataSource,UITableViewDelegate,TLAddTaskVCDelegate,TLTaskDetailsVCDelegate>
 
-@property(strong,nonatomic)NSMutableArray *taskList;
-@property (strong, nonatomic) IBOutlet UITableView *tableView;
+@interface TLTaskListVC : UIViewController
 
-- (IBAction)addTaskBarButtonPressed:(UIBarButtonItem *)sender;
-- (IBAction)reorderTaskBarButtonPressed:(UIBarButtonItem *)sender;
+
+
+//- (IBAction)addTaskBarButtonPressed:(UIBarButtonItem *)sender;
+//- (IBAction)reorderTaskBarButtonPressed:(UIBarButtonItem *)sender;
 
 
 @end

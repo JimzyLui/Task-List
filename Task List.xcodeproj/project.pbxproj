@@ -7,6 +7,26 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7DC44AF11894BF6800D4094E /* libTestFlight.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7DC44AEB1894BF6800D4094E /* libTestFlight.a */; };
+		7DC44AF21894BF6800D4094E /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 7DC44AEC1894BF6800D4094E /* README.md */; };
+		7DC44AF31894BF6800D4094E /* release_notes.md in Resources */ = {isa = PBXBuildFile; fileRef = 7DC44AED1894BF6800D4094E /* release_notes.md */; };
+		7DC44AF71894C0FA00D4094E /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 7DC44AF61894C0FA00D4094E /* libz.dylib */; };
+		7DC44AFA1894C30900D4094E /* TLSettingsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DC44AF91894C30900D4094E /* TLSettingsVC.m */; };
+		7DC44AFD1894C3CB00D4094E /* settings-32.png in Resources */ = {isa = PBXBuildFile; fileRef = 7DC44AFC1894C3CB00D4094E /* settings-32.png */; };
+		7DC44AFF1894C4DE00D4094E /* alarm_clock-32.png in Resources */ = {isa = PBXBuildFile; fileRef = 7DC44AFE1894C4DE00D4094E /* alarm_clock-32.png */; };
+		7DC44B021894CA4E00D4094E /* Settings.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7DC44B011894CA4E00D4094E /* Settings.plist */; };
+		7DC44B121896529600D4094E /* checkbox_checked.png in Resources */ = {isa = PBXBuildFile; fileRef = 7DC44B111896529600D4094E /* checkbox_checked.png */; };
+		7DC44B14189652A600D4094E /* checkbox_unchecked.png in Resources */ = {isa = PBXBuildFile; fileRef = 7DC44B13189652A600D4094E /* checkbox_unchecked.png */; };
+		7DC44B161896571900D4094E /* checkbox_unchecked1.png in Resources */ = {isa = PBXBuildFile; fileRef = 7DC44B151896571900D4094E /* checkbox_unchecked1.png */; };
+		7DC44B181896574000D4094E /* checkbox_checked1.png in Resources */ = {isa = PBXBuildFile; fileRef = 7DC44B171896574000D4094E /* checkbox_checked1.png */; };
+		7DC44B2118965EAD00D4094E /* iTunesArtwork.png in Resources */ = {isa = PBXBuildFile; fileRef = 7DC44B1918965EAD00D4094E /* iTunesArtwork.png */; };
+		7DC44B2218965EAD00D4094E /* iTunesArtwork@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7DC44B1A18965EAD00D4094E /* iTunesArtwork@2x.png */; };
+		7DC44B2318965EAD00D4094E /* settings.png in Resources */ = {isa = PBXBuildFile; fileRef = 7DC44B1B18965EAD00D4094E /* settings.png */; };
+		7DC44B2418965EAD00D4094E /* settings@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7DC44B1C18965EAD00D4094E /* settings@2x.png */; };
+		7DC44B2518965EAD00D4094E /* spotlight.png in Resources */ = {isa = PBXBuildFile; fileRef = 7DC44B1D18965EAD00D4094E /* spotlight.png */; };
+		7DC44B2618965EAD00D4094E /* spotlight@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7DC44B1E18965EAD00D4094E /* spotlight@2x.png */; };
+		7DC44B2718965EAD00D4094E /* Task List.png in Resources */ = {isa = PBXBuildFile; fileRef = 7DC44B1F18965EAD00D4094E /* Task List.png */; };
+		7DC44B2818965EAD00D4094E /* Task List@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7DC44B2018965EAD00D4094E /* Task List@2x.png */; };
 		7DE25B85184C09DD00D7FE99 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7DE25B84184C09DD00D7FE99 /* Foundation.framework */; };
 		7DE25B87184C09DD00D7FE99 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7DE25B86184C09DD00D7FE99 /* CoreGraphics.framework */; };
 		7DE25B89184C09DE00D7FE99 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7DE25B88184C09DE00D7FE99 /* UIKit.framework */; };
@@ -42,6 +62,31 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7DC44AEB1894BF6800D4094E /* libTestFlight.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libTestFlight.a; sourceTree = "<group>"; };
+		7DC44AEC1894BF6800D4094E /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
+		7DC44AED1894BF6800D4094E /* release_notes.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = release_notes.md; sourceTree = "<group>"; };
+		7DC44AEE1894BF6800D4094E /* TestFlight+AsyncLogging.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TestFlight+AsyncLogging.h"; sourceTree = "<group>"; };
+		7DC44AEF1894BF6800D4094E /* TestFlight+ManualSessions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TestFlight+ManualSessions.h"; sourceTree = "<group>"; };
+		7DC44AF01894BF6800D4094E /* TestFlight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestFlight.h; sourceTree = "<group>"; };
+		7DC44AF61894C0FA00D4094E /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		7DC44AF81894C30900D4094E /* TLSettingsVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TLSettingsVC.h; sourceTree = "<group>"; };
+		7DC44AF91894C30900D4094E /* TLSettingsVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TLSettingsVC.m; sourceTree = "<group>"; };
+		7DC44AFC1894C3CB00D4094E /* settings-32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "settings-32.png"; sourceTree = "<group>"; };
+		7DC44AFE1894C4DE00D4094E /* alarm_clock-32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "alarm_clock-32.png"; sourceTree = "<group>"; };
+		7DC44B011894CA4E00D4094E /* Settings.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Settings.plist; sourceTree = "<group>"; };
+		7DC44B071894DE6900D4094E /* Task_List_Dev_Provisioning_Profile.mobileprovision */ = {isa = PBXFileReference; lastKnownFileType = file; path = Task_List_Dev_Provisioning_Profile.mobileprovision; sourceTree = "<group>"; };
+		7DC44B111896529600D4094E /* checkbox_checked.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = checkbox_checked.png; sourceTree = "<group>"; };
+		7DC44B13189652A600D4094E /* checkbox_unchecked.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = checkbox_unchecked.png; sourceTree = "<group>"; };
+		7DC44B151896571900D4094E /* checkbox_unchecked1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = checkbox_unchecked1.png; sourceTree = "<group>"; };
+		7DC44B171896574000D4094E /* checkbox_checked1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = checkbox_checked1.png; sourceTree = "<group>"; };
+		7DC44B1918965EAD00D4094E /* iTunesArtwork.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iTunesArtwork.png; sourceTree = "<group>"; };
+		7DC44B1A18965EAD00D4094E /* iTunesArtwork@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iTunesArtwork@2x.png"; sourceTree = "<group>"; };
+		7DC44B1B18965EAD00D4094E /* settings.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = settings.png; sourceTree = "<group>"; };
+		7DC44B1C18965EAD00D4094E /* settings@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "settings@2x.png"; sourceTree = "<group>"; };
+		7DC44B1D18965EAD00D4094E /* spotlight.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spotlight.png; sourceTree = "<group>"; };
+		7DC44B1E18965EAD00D4094E /* spotlight@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "spotlight@2x.png"; sourceTree = "<group>"; };
+		7DC44B1F18965EAD00D4094E /* Task List.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Task List.png"; sourceTree = "<group>"; };
+		7DC44B2018965EAD00D4094E /* Task List@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Task List@2x.png"; sourceTree = "<group>"; };
 		7DE25B81184C09DD00D7FE99 /* Task List.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Task List.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7DE25B84184C09DD00D7FE99 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		7DE25B86184C09DD00D7FE99 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -80,6 +125,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7DC44AF71894C0FA00D4094E /* libz.dylib in Frameworks */,
+				7DC44AF11894BF6800D4094E /* libTestFlight.a in Frameworks */,
 				7DE25B87184C09DD00D7FE99 /* CoreGraphics.framework in Frameworks */,
 				7DE25B8B184C09DE00D7FE99 /* CoreData.framework in Frameworks */,
 				7DE25B89184C09DE00D7FE99 /* UIKit.framework in Frameworks */,
@@ -101,6 +148,51 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7DC44AEA1894BF6800D4094E /* TestFlightSDK2 */ = {
+			isa = PBXGroup;
+			children = (
+				7DC44AEB1894BF6800D4094E /* libTestFlight.a */,
+				7DC44AEC1894BF6800D4094E /* README.md */,
+				7DC44AED1894BF6800D4094E /* release_notes.md */,
+				7DC44AEE1894BF6800D4094E /* TestFlight+AsyncLogging.h */,
+				7DC44AEF1894BF6800D4094E /* TestFlight+ManualSessions.h */,
+				7DC44AF01894BF6800D4094E /* TestFlight.h */,
+			);
+			path = TestFlightSDK2;
+			sourceTree = "<group>";
+		};
+		7DC44AFB1894C3A400D4094E /* icons */ = {
+			isa = PBXGroup;
+			children = (
+				7DC44AFC1894C3CB00D4094E /* settings-32.png */,
+				7DC44AFE1894C4DE00D4094E /* alarm_clock-32.png */,
+				7DC44B1918965EAD00D4094E /* iTunesArtwork.png */,
+				7DC44B1A18965EAD00D4094E /* iTunesArtwork@2x.png */,
+				7DC44B1B18965EAD00D4094E /* settings.png */,
+				7DC44B1C18965EAD00D4094E /* settings@2x.png */,
+				7DC44B1D18965EAD00D4094E /* spotlight.png */,
+				7DC44B1E18965EAD00D4094E /* spotlight@2x.png */,
+				7DC44B1F18965EAD00D4094E /* Task List.png */,
+				7DC44B2018965EAD00D4094E /* Task List@2x.png */,
+				7DC44B13189652A600D4094E /* checkbox_unchecked.png */,
+				7DC44B171896574000D4094E /* checkbox_checked1.png */,
+				7DC44B111896529600D4094E /* checkbox_checked.png */,
+				7DC44B151896571900D4094E /* checkbox_unchecked1.png */,
+				7DE25B9B184C09DE00D7FE99 /* Images.xcassets */,
+			);
+			name = icons;
+			sourceTree = "<group>";
+		};
+		7DC44B001894CA1200D4094E /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				7DC44AF81894C30900D4094E /* TLSettingsVC.h */,
+				7DC44AF91894C30900D4094E /* TLSettingsVC.m */,
+				7DC44B011894CA4E00D4094E /* Settings.plist */,
+			);
+			name = Settings;
+			sourceTree = "<group>";
+		};
 		7DE25B78184C09DD00D7FE99 = {
 			isa = PBXGroup;
 			children = (
@@ -123,6 +215,7 @@
 		7DE25B83184C09DD00D7FE99 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				7DC44AF61894C0FA00D4094E /* libz.dylib */,
 				7DE25B84184C09DD00D7FE99 /* Foundation.framework */,
 				7DE25B86184C09DD00D7FE99 /* CoreGraphics.framework */,
 				7DE25B88184C09DE00D7FE99 /* UIKit.framework */,
@@ -135,9 +228,10 @@
 		7DE25B8C184C09DE00D7FE99 /* Task List */ = {
 			isa = PBXGroup;
 			children = (
-				7DE25B9B184C09DE00D7FE99 /* Images.xcassets */,
 				7DE25BBE184C0B7300D7FE99 /* iPhone.storyboard */,
+				7DC44AFB1894C3A400D4094E /* icons */,
 				7DE25BBD184C0AFF00D7FE99 /* View Controllers */,
+				7DC44B001894CA1200D4094E /* Settings */,
 				7DE25BBC184C0AD400D7FE99 /* Core Data */,
 				7DE25B8D184C09DE00D7FE99 /* Supporting Files */,
 			);
@@ -147,6 +241,8 @@
 		7DE25B8D184C09DE00D7FE99 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				7DC44B071894DE6900D4094E /* Task_List_Dev_Provisioning_Profile.mobileprovision */,
+				7DC44AEA1894BF6800D4094E /* TestFlightSDK2 */,
 				7DE25B95184C09DE00D7FE99 /* TLAppDelegate.h */,
 				7DE25B96184C09DE00D7FE99 /* TLAppDelegate.m */,
 				7DE25B8E184C09DE00D7FE99 /* Task List-Info.plist */,
@@ -250,6 +346,9 @@
 				LastUpgradeCheck = 0500;
 				ORGANIZATIONNAME = "Jimzy Lui";
 				TargetAttributes = {
+					7DE25B80184C09DD00D7FE99 = {
+						DevelopmentTeam = 42STNDM6CG;
+					};
 					7DE25BA0184C09DE00D7FE99 = {
 						TestTargetID = 7DE25B80184C09DD00D7FE99;
 					};
@@ -278,9 +377,26 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7DC44B2818965EAD00D4094E /* Task List@2x.png in Resources */,
+				7DC44B121896529600D4094E /* checkbox_checked.png in Resources */,
 				7DE25B91184C09DE00D7FE99 /* InfoPlist.strings in Resources */,
+				7DC44B181896574000D4094E /* checkbox_checked1.png in Resources */,
+				7DC44B021894CA4E00D4094E /* Settings.plist in Resources */,
+				7DC44B14189652A600D4094E /* checkbox_unchecked.png in Resources */,
+				7DC44B2718965EAD00D4094E /* Task List.png in Resources */,
+				7DC44B2618965EAD00D4094E /* spotlight@2x.png in Resources */,
 				7DE25BBF184C0B7300D7FE99 /* iPhone.storyboard in Resources */,
+				7DC44B2318965EAD00D4094E /* settings.png in Resources */,
+				7DC44AF21894BF6800D4094E /* README.md in Resources */,
+				7DC44B2118965EAD00D4094E /* iTunesArtwork.png in Resources */,
 				7DE25B9C184C09DE00D7FE99 /* Images.xcassets in Resources */,
+				7DC44B2218965EAD00D4094E /* iTunesArtwork@2x.png in Resources */,
+				7DC44AF31894BF6800D4094E /* release_notes.md in Resources */,
+				7DC44B161896571900D4094E /* checkbox_unchecked1.png in Resources */,
+				7DC44B2418965EAD00D4094E /* settings@2x.png in Resources */,
+				7DC44AFD1894C3CB00D4094E /* settings-32.png in Resources */,
+				7DC44B2518965EAD00D4094E /* spotlight.png in Resources */,
+				7DC44AFF1894C4DE00D4094E /* alarm_clock-32.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -308,6 +424,7 @@
 				7DE25BCB184C0CD700D7FE99 /* TLTaskDetailsVC.m in Sources */,
 				7DE25C2C184DAD1000D7FE99 /* Task.m in Sources */,
 				7DE25BC2184C0BC300D7FE99 /* TLCoreDataHelper.m in Sources */,
+				7DC44AFA1894C30900D4094E /* TLSettingsVC.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -384,6 +501,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				ONLY_ACTIVE_ARCH = YES;
+				PROVISIONING_PROFILE = "E494F984-0AB0-4BB1-9D91-2E45DB46BCB4";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -416,6 +534,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				PROVISIONING_PROFILE = "E494F984-0AB0-4BB1-9D91-2E45DB46BCB4";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -426,10 +545,17 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Task List/Task List-Prefix.pch";
 				INFOPLIST_FILE = "Task List/Task List-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"/Users/jimzylui_desktop/Dropbox/iOS/iOS\\ Personal\\ Projects/Task\\ List/Task\\ List/TestFlightSDK2",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -439,10 +565,17 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Task List/Task List-Prefix.pch";
 				INFOPLIST_FILE = "Task List/Task List-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"/Users/jimzylui_desktop/Dropbox/iOS/iOS\\ Personal\\ Projects/Task\\ List/Task\\ List/TestFlightSDK2",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -508,6 +641,7 @@
 				7DE25BB5184C09DE00D7FE99 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		7DE25BB6184C09DE00D7FE99 /* Build configuration list for PBXNativeTarget "Task ListTests" */ = {
 			isa = XCConfigurationList;
@@ -516,6 +650,7 @@
 				7DE25BB8184C09DE00D7FE99 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

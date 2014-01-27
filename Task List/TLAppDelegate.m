@@ -7,6 +7,7 @@
 //
 
 #import "TLAppDelegate.h"
+#import "TestFlight.h"
 
 @implementation TLAppDelegate
 
@@ -21,6 +22,13 @@
 //    self.window.backgroundColor = [UIColor whiteColor];
 //    [self.window makeKeyAndVisible];
     //NSLog(@"didFinishLaunchingWithOptions");
+	[TestFlight takeOff:@"d3de7ae3-f15f-45f0-a6bd-c87945f3b0ba"];
+
+	NSString *defaultPrefsFile = [[NSBundle mainBundle] pathForResource:@"defaultPrefsFile" ofType:@"plist"];
+    NSDictionary *defaultPreferences = [NSDictionary dictionaryWithContentsOfFile:defaultPrefsFile];
+    [[NSUserDefaults standardUserDefaults] registerDefaults:defaultPreferences];
+
+
     return YES;
 }
 

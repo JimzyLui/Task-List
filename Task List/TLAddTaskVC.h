@@ -7,23 +7,18 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "Task.h"
+//#import "Task.h"
 
 @protocol TLAddTaskVCDelegate <NSObject>
 
-//-(void)didCancel;
 -(void)didAddTask:(Task *)task;
 
 @end
-@interface TLAddTaskVC : UIViewController<UITextViewDelegate,UITextFieldDelegate>
+@interface TLAddTaskVC : UIViewController
 
 @property(weak,nonatomic)id<TLAddTaskVCDelegate>delegate;
 
-@property (strong, nonatomic) IBOutlet UITextField *taskNameTextField;
-@property (strong, nonatomic) IBOutlet UITextView *taskDetailsTextView;
-@property (strong, nonatomic) IBOutlet UIDatePicker *dateDueDatePicker;
-@property (strong, nonatomic) IBOutlet UIBarButtonItem *saveBarButtonItem;
 
-- (IBAction)saveTaskBarButtonItemPressed:(UIBarButtonItem *)sender;
+//- (IBAction)saveTaskBarButtonItemPressed:(UIBarButtonItem *)sender;
 
 @end

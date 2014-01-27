@@ -7,28 +7,20 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "Task.h"
-#import "TLEditTaskVC.h"
 
 @protocol TLTaskDetailsVCDelegate <NSObject>
 
 -(void)didUpdateTask;
 
 @end
-@interface TLTaskDetailsVC : UIViewController<TLEditTaskVCDelegate>
+@interface TLTaskDetailsVC : UIViewController
 
 @property(weak,nonatomic)id<TLTaskDetailsVCDelegate>delegate;
-
 @property(strong,nonatomic)Task *task;
-@property (strong, nonatomic) IBOutlet UILabel *taskNameLabel;
-@property (strong, nonatomic) IBOutlet UILabel *dateLabel;
-@property (strong, nonatomic) IBOutlet UILabel *taskDetailsLabel;
-@property (strong, nonatomic) IBOutlet UISwitch *isCompletedSwitch;
 
-@property (strong, nonatomic) IBOutlet UILabel *isCompletedLabel;
 
-- (IBAction)isCompletedSwitchChanged:(UISwitch *)sender;
-- (IBAction)editTaskBarButtonItemPressed:(UIBarButtonItem *)sender;
+//- (IBAction)isCompletedSwitchChanged:(UISwitch *)sender;
+//- (IBAction)editTaskBarButtonItemPressed:(UIBarButtonItem *)sender;
 
 
 @end

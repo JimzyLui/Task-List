@@ -8,7 +8,12 @@
 
 #import "TLEditTaskVC.h"
 
-@interface TLEditTaskVC ()
+@interface TLEditTaskVC ()<UITextFieldDelegate,UITextViewDelegate>
+@property (strong, nonatomic) IBOutlet UITextField *taskNameTextField;
+@property (strong, nonatomic) IBOutlet UITextView *taskDetailsTextView;
+@property (strong, nonatomic) IBOutlet UIDatePicker *taskDueDatePicker;
+@property (strong, nonatomic) IBOutlet UISwitch *isCompletedSwitch;
+@property (strong, nonatomic) IBOutlet UILabel *isCompletedLabel;
 
 @end
 
@@ -37,6 +42,22 @@
     //setup delegates for removing keyboard
     self.taskNameTextField.delegate = self;
     self.taskDetailsTextView.delegate = self;
+
+
+	UISwipeGestureRecognizer *rightSwipe = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(goBackToPreviousScreen)];
+    [self.view addGestureRecognizer:rightSwipe];
+    [self.view addGestureRecognizer:rightSwipe];
+}
+
+-(void)viewWillAppear:(BOOL)animated
+{
+	NSString *strTimeStyle = [[NSUserDefaults standardUserDefaults] stringForKey:@"timeStyle"];
+	if ([strTimeStyle  isEqual: @"None"]) {
+		self.taskDueDatePicker.datePickerMode = UIDatePickerModeDate;
+	} else{
+		self.taskDueDatePicker.datePickerMode = UIDatePickerModeDateAndTime;
+	}
+
 }
 
 - (void)didReceiveMemoryWarning
@@ -44,6 +65,8 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+#pragma mark - Helper Methods
 
 -(void)isCompleted:(NSNumber*)isCompleted
 {
@@ -66,6 +89,8 @@
     }
 }
 
+#pragma mark - IBAction Methods
+
 - (IBAction)saveBarButtonItemPressed:(UIBarButtonItem *)sender {
     [self updateTask];
     [self.delegate didUpdateTask];
@@ -81,7 +106,8 @@
 }
 
 
-#pragma mark - UITextFieldDelegate
+#pragma mark - Delegate Methods
+
 -(BOOL)textFieldShouldReturn:(UITextField *)textField
 {
     [self.taskNameTextField resignFirstResponder];
@@ -96,5 +122,13 @@
         return NO;
     }
     return YES;
+}
+
+#pragma mark - Navigation Methods
+
+-(void)goBackToPreviousScreen
+{
+    // go back one screen
+    [self.navigationController popViewControllerAnimated:YES];
 }
 @end

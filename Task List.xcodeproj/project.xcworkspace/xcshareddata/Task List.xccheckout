@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>8644D9CC-4AA8-40C9-883F-D6595723B7E2</string>
+	<key>IDESourceControlProjectName</key>
+	<string>Task List</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>ED0307FC-482D-4965-A59D-D396572D905F</key>
+		<string>https://github.com/JimzyLui/Task-List.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>Task List.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>ED0307FC-482D-4965-A59D-D396572D905F</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/JimzyLui/Task-List.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>ED0307FC-482D-4965-A59D-D396572D905F</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>ED0307FC-482D-4965-A59D-D396572D905F</string>
+			<key>IDESourceControlWCCName</key>
+			<string>Task List</string>
+		</dict>
+	</array>
+</dict>
+</plist>
