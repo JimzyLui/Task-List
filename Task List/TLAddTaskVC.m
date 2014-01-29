@@ -44,10 +44,14 @@
 -(void)viewWillAppear:(BOOL)animated
 {
 
+	int iWeeksBeforeDue = (int)[[NSUserDefaults standardUserDefaults] integerForKey:@"timeBeforeDueInWeeks"];
 	int iDaysBeforeDue = (int)[[NSUserDefaults standardUserDefaults] integerForKey:@"timeBeforeDueInDays"];
 	int iHoursBeforeDue = (int)[[NSUserDefaults standardUserDefaults] integerForKey:@"timeBeforeDueInHours"];
 	int iMinutesBeforeDue = (int)[[NSUserDefaults standardUserDefaults] integerForKey:@"timeBeforeDueInMinutes"];
 	NSString *strTimeStyle = [[NSUserDefaults standardUserDefaults] stringForKey:@"timeStyle"];
+	iDaysBeforeDue += iWeeksBeforeDue * 7;  //to account for the addition of weeks
+	iMinutesBeforeDue = iMinutesBeforeDue * 5;  //change back from five minute intervals
+	NSLog(@"TimeBeforeDue: Days: %d Hours: %d, Minutes: %d",iDaysBeforeDue, iHoursBeforeDue, iMinutesBeforeDue);
 
     // give a 1 day lead to datepicker
     NSDate *now = [NSDate date];
@@ -55,6 +59,8 @@
 	int iDaysInterval = 60*60*24*iDaysBeforeDue;
 	int iHoursInterval = 60*60*iHoursBeforeDue;
 	int iMinutesInterval = 60*iMinutesBeforeDue;
+
+
 	int iTimeInterval = iDaysInterval + iHoursInterval + iMinutesInterval;
     self.dateDueDatePicker.date = [now dateByAddingTimeInterval:iTimeInterval];
 	if ([strTimeStyle  isEqual: @"None"]) {

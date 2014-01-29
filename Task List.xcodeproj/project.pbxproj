@@ -74,7 +74,6 @@
 		7DC44AFC1894C3CB00D4094E /* settings-32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "settings-32.png"; sourceTree = "<group>"; };
 		7DC44AFE1894C4DE00D4094E /* alarm_clock-32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "alarm_clock-32.png"; sourceTree = "<group>"; };
 		7DC44B011894CA4E00D4094E /* Settings.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Settings.plist; sourceTree = "<group>"; };
-		7DC44B071894DE6900D4094E /* Task_List_Dev_Provisioning_Profile.mobileprovision */ = {isa = PBXFileReference; lastKnownFileType = file; path = Task_List_Dev_Provisioning_Profile.mobileprovision; sourceTree = "<group>"; };
 		7DC44B111896529600D4094E /* checkbox_checked.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = checkbox_checked.png; sourceTree = "<group>"; };
 		7DC44B13189652A600D4094E /* checkbox_unchecked.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = checkbox_unchecked.png; sourceTree = "<group>"; };
 		7DC44B151896571900D4094E /* checkbox_unchecked1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = checkbox_unchecked1.png; sourceTree = "<group>"; };
@@ -241,7 +240,6 @@
 		7DE25B8D184C09DE00D7FE99 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				7DC44B071894DE6900D4094E /* Task_List_Dev_Provisioning_Profile.mobileprovision */,
 				7DC44AEA1894BF6800D4094E /* TestFlightSDK2 */,
 				7DE25B95184C09DE00D7FE99 /* TLAppDelegate.h */,
 				7DE25B96184C09DE00D7FE99 /* TLAppDelegate.m */,
@@ -483,7 +481,7 @@
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -501,7 +499,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				ONLY_ACTIVE_ARCH = YES;
-				PROVISIONING_PROFILE = "E494F984-0AB0-4BB1-9D91-2E45DB46BCB4";
+				PROVISIONING_PROFILE = "9BFF5D33-774A-4392-BF40-4B08E6799A93";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -523,7 +521,8 @@
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos7.0]" = "";
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -534,7 +533,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				PROVISIONING_PROFILE = "E494F984-0AB0-4BB1-9D91-2E45DB46BCB4";
+				PROVISIONING_PROFILE = "9BFF5D33-774A-4392-BF40-4B08E6799A93";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -545,8 +544,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Task List/Task List-Prefix.pch";
 				INFOPLIST_FILE = "Task List/Task List-Info.plist";
@@ -555,7 +554,7 @@
 					"/Users/jimzylui_desktop/Dropbox/iOS/iOS\\ Personal\\ Projects/Task\\ List/Task\\ List/TestFlightSDK2",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "9BFF5D33-774A-4392-BF40-4B08E6799A93";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -565,8 +564,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Task List/Task List-Prefix.pch";
 				INFOPLIST_FILE = "Task List/Task List-Info.plist";
@@ -575,7 +573,7 @@
 					"/Users/jimzylui_desktop/Dropbox/iOS/iOS\\ Personal\\ Projects/Task\\ List/Task\\ List/TestFlightSDK2",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "9BFF5D33-774A-4392-BF40-4B08E6799A93";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

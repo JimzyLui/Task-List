@@ -8,26 +8,70 @@
 
 #import "TLSettingsVC.h"
 
-@interface TLSettingsVC ()<UITextFieldDelegate>
+@interface TLSettingsVC ()<UIScrollViewDelegate,UIPickerViewDataSource,UIPickerViewDelegate>
+
+@property (strong, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (strong, nonatomic) IBOutlet UILabel *dateTimeLabel;
 @property (strong, nonatomic) IBOutlet UISwitch *showWeekdaySwitch;
 @property (strong, nonatomic) IBOutlet UISwitch *isFullYearSwitch;
 @property (strong, nonatomic) IBOutlet UISwitch *hasLeadingZerosSwitch;
-//@property (strong, nonatomic) IBOutlet UISegmentedControl *timeTypeSegmentedControl;
 @property (strong, nonatomic) IBOutlet UISegmentedControl *timeStyleSegmentedControl;
 @property (strong, nonatomic) IBOutlet UISegmentedControl *dateStyleSegmentedControl;
-@property (strong, nonatomic) IBOutlet UITextField *daysBeforeDueTextField;
-@property (strong, nonatomic) IBOutlet UITextField *hoursBeforeDueTextField;
-@property (strong, nonatomic) IBOutlet UITextField *minutesBeforeDueTextField;
-@property(nonatomic)int iDays;
-@property(nonatomic)int iHours;
-@property(nonatomic)int iMinutes;
-@property(nonatomic)BOOL addDone;
+@property (strong, nonatomic) IBOutlet UIPickerView *pickerView;
+
+
+@property(nonatomic)NSInteger iWeeks;
+@property(nonatomic)NSInteger iDays;
+@property(nonatomic)NSInteger iHours;
+@property(nonatomic)NSInteger iMinutes;
 @property(strong,nonatomic)NSString *strDateTimeFormat;
+
+@property(strong,nonatomic)NSMutableArray *Weeks;
+@property(strong,nonatomic)NSMutableArray *Days;
+@property(strong,nonatomic)NSMutableArray *Hours;
+@property(strong,nonatomic)NSMutableArray *Minutes;
+
 
 @end
 
 @implementation TLSettingsVC
+
+#pragma mark - Lazy Instantiation
+
+-(NSMutableArray *)Weeks
+{
+    if(!_Weeks){
+        _Weeks = [[NSMutableArray alloc] init];
+    }
+    return _Weeks;
+}
+
+
+-(NSMutableArray *)Days
+{
+    if(!_Days){
+        _Days = [[NSMutableArray alloc] init];
+    }
+    return _Days;
+}
+
+
+-(NSMutableArray *)Hours
+{
+    if(!_Hours){
+        _Hours = [[NSMutableArray alloc] init];
+    }
+    return _Hours;
+}
+
+
+-(NSMutableArray *)Minutes
+{
+    if(!_Minutes){
+        _Minutes = [[NSMutableArray alloc] init];
+    }
+    return _Minutes;
+}
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -43,15 +87,18 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
 
-	self.daysBeforeDueTextField.delegate = self;
-	self.minutesBeforeDueTextField.delegate = self;
-	self.hoursBeforeDueTextField.delegate = self;
+	self.scrollView.delegate = self;
+	self.pickerView.delegate = self;
+	self.pickerView.dataSource = self;
 
-
+	//set up arrays
+	[self setupPickerDataArrays];
 }
 
 -(void)viewWillAppear:(BOOL)animated
 {
+	self.automaticallyAdjustsScrollViewInsets = NO;
+
 	self.showWeekdaySwitch.on = [[NSUserDefaults standardUserDefaults] boolForKey:@"showWeekday"];
     [self.showWeekdaySwitch addTarget:self action:@selector(valueChanged:) forControlEvents:UIControlEventValueChanged];
 
@@ -83,39 +130,36 @@
     [self.timeStyleSegmentedControl addTarget:self action:@selector(valueChanged:) forControlEvents:UIControlEventValueChanged];
 
 	self.iMinutes = [[NSUserDefaults standardUserDefaults] integerForKey:@"timeBeforeDueInMinutes"];
-	self.minutesBeforeDueTextField.text = [NSString stringWithFormat:@"%i",self.iMinutes];
-    [self.minutesBeforeDueTextField addTarget:self action:@selector(valueChanged:) forControlEvents:UIControlEventValueChanged];
-
 	self.iHours = [[NSUserDefaults standardUserDefaults] integerForKey:@"timeBeforeDueInHours"];
-	self.hoursBeforeDueTextField.text = [NSString stringWithFormat:@"%i",self.iHours];
-	[self.hoursBeforeDueTextField addTarget:self action:@selector(valueChanged:) forControlEvents:UIControlEventValueChanged];
-
-
 	self.iDays = [[NSUserDefaults standardUserDefaults] integerForKey:@"timeBeforeDueInDays"];
- 	self.daysBeforeDueTextField.text = [NSString stringWithFormat:@"%i",self.iDays];
-	[self.daysBeforeDueTextField addTarget:self action:@selector(valueChanged:) forControlEvents:UIControlEventValueChanged];
-	NSLog(@"Retrieved Days: %i", self.iDays);
+	self.iWeeks = [[NSUserDefaults standardUserDefaults] integerForKey:@"timeBeforeDueInWeeks"];
+
+
+	NSLog(@"pickerView: Weeks: %ld/%ld  Days: %ld/%ld  Hours: %ld/%ld Minutes: %ld/%ld (%ld/%ld) ",
+		  (long)self.iWeeks,(long)self.Weeks.count,
+		  (long)self.iDays,(long)self.Days.count,
+		  (long)self.iHours,(long)self.Hours.count,
+		  (long)self.iMinutes * 5,(long)self.Minutes.count * 5,
+		  (long)self.iMinutes,(long)self.Minutes.count
+		  );
+	//[self.pickerView selectRow:0 inComponent:0 animated:NO];
+	[self.pickerView selectRow:self.iWeeks inComponent:0 animated:YES];
+	[self.pickerView selectRow:self.iDays inComponent:1 animated:YES];
+	[self.pickerView selectRow:_iHours inComponent:2 animated:YES];
+	[self.pickerView selectRow:_iMinutes inComponent:3 animated:YES];
+	[self.pickerView reloadAllComponents];
 
 	_strDateTimeFormat = [[NSUserDefaults standardUserDefaults] stringForKey:@"dateTimeFormatString"];
 
-	self.minutesBeforeDueTextField.tag = 1;
-	self.hoursBeforeDueTextField.tag = 2;
-	self.daysBeforeDueTextField.tag = 3;
-
-	//NSDate *now = [NSDate date];
-    //NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
 	[self generateDateTimeFormatString];
-
-
 }
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 
-
-#pragma mark - IBAction Methods
 
 #pragma mark - Helper Methods
 
@@ -158,7 +202,7 @@
 		case 0:
 			// Western
 			strDate = [NSString stringWithFormat:@"%@%@%@%@%@",
-						 strMonth,strSeparator,strDay,strSeparator,strYear];
+					   strMonth,strSeparator,strDay,strSeparator,strYear];
 			break;
 		case 1:
 			// European
@@ -167,7 +211,7 @@
 			break;
 		case 2:
 			// Military
-					   strDate = [NSString stringWithFormat:@"%@ MMM %@",strDay,strYear];
+			strDate = [NSString stringWithFormat:@"%@ MMM %@",strDay,strYear];
 			break;
 		default:
 			break;
@@ -187,11 +231,6 @@
 
 -(void)valueChanged:(id)sender
 {
-//    if (sender == self.ageSlider) {
-//        [[NSUserDefaults standardUserDefaults] setInteger:(int)self.ageSlider.value forKey:kMUAgeMaxKey];
-//        self.ageLabel.text = [NSString stringWithFormat:@"%i",(int)self.ageSlider.value];
-//    }
-//    else
 	if (sender == self.showWeekdaySwitch){
         [[NSUserDefaults standardUserDefaults] setInteger:self.showWeekdaySwitch.isOn forKey:@"showWeekday"];
     }else if (sender == self.isFullYearSwitch){
@@ -218,18 +257,20 @@
 			[[NSUserDefaults standardUserDefaults] setObject:@"Military" forKey:@"timeStyle"];
 		}
 	}
-    else if (sender == self.minutesBeforeDueTextField){
-        [[NSUserDefaults standardUserDefaults] setInteger:[self.minutesBeforeDueTextField.text intValue] forKey:@"timeBeforeDueInMinutes"];
-    }
 
-    else if (sender == self.hoursBeforeDueTextField){
-        [[NSUserDefaults standardUserDefaults] setInteger:[self.hoursBeforeDueTextField.text intValue] forKey:@"timeBeforeDueInHours"];
-    }
-
-    else if (sender == self.daysBeforeDueTextField){
-        [[NSUserDefaults standardUserDefaults] setInteger:[self.daysBeforeDueTextField.text intValue] forKey:@"timeBeforeDueInDays"];
-		NSLog(@"Changed Days: %i", [self.daysBeforeDueTextField.text intValue]);
-    }
+	//Weeks
+	self.iWeeks = [_pickerView selectedRowInComponent:0];
+	[[NSUserDefaults standardUserDefaults] setInteger:self.iWeeks forKey:@"timeBeforeDueInWeeks"];
+	NSLog(@"iWeeks saved: %ld",(long)self.iWeeks );
+	//Days
+	self.iDays = [_pickerView selectedRowInComponent:1];
+	[[NSUserDefaults standardUserDefaults] setInteger:self.iDays forKey:@"timeBeforeDueInDays"];
+	//Hours
+	self.iHours = [_pickerView selectedRowInComponent:2];
+	[[NSUserDefaults standardUserDefaults] setInteger:self.iHours forKey:@"timeBeforeDueInHours"];
+	//Minutes
+	self.iMinutes = [_pickerView selectedRowInComponent:3];
+	[[NSUserDefaults standardUserDefaults] setInteger:self.iMinutes forKey:@"timeBeforeDueInMinutes"];
 
 	[self generateDateTimeFormatString];
 	[[NSUserDefaults standardUserDefaults] setObject:_strDateTimeFormat forKey:@"dateTimeFormatString"];
@@ -238,37 +279,129 @@
 }
 
 
-- (void)textFieldDidEndEditing:(UITextField *)textField
+
+#pragma mark - Delegate Methods
+
+-(NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView
 {
-	if (textField.tag == 1) {
-		[[NSUserDefaults standardUserDefaults] setInteger:[self.minutesBeforeDueTextField.text intValue] forKey:@"timeBeforeDueInMinutes"];
-	}
-
-	if (textField.tag == 2) {
-		[[NSUserDefaults standardUserDefaults] setInteger:[self.hoursBeforeDueTextField.text intValue] forKey:@"timeBeforeDueInHours"];
-	}
-
-	if (textField.tag == 3) {
-		[[NSUserDefaults standardUserDefaults] setInteger:[self.daysBeforeDueTextField.text intValue] forKey:@"timeBeforeDueInDays"];
-	}
-
-//	if ([textField isEqual:self.hoursBeforeDueTextField]) {
-//		[[NSUserDefaults standardUserDefaults] setInteger:[self.hoursBeforeDueTextField.text intValue] forKey:@"timeBeforeDueInHours"];
-//	}
-//
-//	if ([textField isEqual:self.daysBeforeDueTextField]) {
-//		[[NSUserDefaults standardUserDefaults] setInteger:[self.daysBeforeDueTextField.text intValue] forKey:@"timeBeforeDueInDays"];
-//	}
-    [textField resignFirstResponder];
+	return 4;
 }
 
--(void)touchesBegan: (NSSet *)touches withEvent:(UIEvent *)event
+-(NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component
 {
-	// do the following for all textfields in your current view
-	[self.daysBeforeDueTextField resignFirstResponder];
-	[self.minutesBeforeDueTextField resignFirstResponder];
-	[self.hoursBeforeDueTextField resignFirstResponder];
-	// save the value of the textfield, ...
+	switch (component) {
+		case 0:
+			return [self.Weeks count];
+			break;
+		case 1:
+			return [self.Days count];
+			break;
+		case 2:
+			return [self.Hours count];
+			break;
+		case 3:
+			return [self.Minutes count];
+			break;
+
+		default:
+			return 0;
+			break;
+	}
+}
+
+
+
+
+-(NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component
+{
+	switch (component) {
+		case 0:
+			return [NSString stringWithFormat:@"%@",[self.Weeks objectAtIndex:row]];
+			//return [self.Weeks objectAtIndex:row];
+			//return @"I love you!";
+
+			break;
+		case 1:
+			//return @"I love you!";
+			return [NSString stringWithFormat:@"%@",[self.Days objectAtIndex:row]];
+			break;
+		case 2:
+			//return @"I love you!";
+			return [NSString stringWithFormat:@"%@",[self.Hours objectAtIndex:row]];
+			break;
+		case 3:
+			//return @"I love you!";
+
+			return [NSString stringWithFormat:@"%@",self.Minutes[row]];
+			//return [_Minutes objectAtIndex:row];
+			break;
+
+		default:
+			return 0;
+			break;
+	}
+}
+
+-(void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component
+{
+
+	switch (component) {
+		case 0:
+			//Weeks
+			//self.iWeeks = (int) self.Weeks[row];
+			self.iWeeks = [_pickerView selectedRowInComponent:0];
+			[[NSUserDefaults standardUserDefaults] setInteger:self.iWeeks forKey:@"timeBeforeDueInWeeks"];
+
+			break;
+		case 1:
+			//Days
+			//self.iDays = (int) self.Days[row];
+			self.iDays = [_pickerView selectedRowInComponent:1];
+			[[NSUserDefaults standardUserDefaults] setInteger:self.iDays forKey:@"timeBeforeDueInDays"];
+			break;
+		case 2:
+			//Hours
+			//self.iHours = (int) self.Hours[row];
+			self.iHours = [_pickerView selectedRowInComponent:2];
+			[[NSUserDefaults standardUserDefaults] setInteger:self.iHours forKey:@"timeBeforeDueInHours"];
+			break;
+		case 3:
+			//Minutes
+			//self.iMinutes = (int) self.Minutes[row];
+			self.iMinutes = [_pickerView selectedRowInComponent:3];
+			[[NSUserDefaults standardUserDefaults] setInteger:self.iMinutes forKey:@"timeBeforeDueInMinutes"];
+			break;
+
+		default:
+			break;
+	}
+
+}
+
+-(void)setupPickerDataArrays
+{
+	//self.Weeks = [[NSMutableArray alloc] init];
+	for (NSInteger weeks = 0; weeks < 52; weeks++) {
+		//NSLog(@"%ld, count: %ld",(long)weeks, self.Weeks.count);
+		[self.Weeks addObject:[NSNumber numberWithInteger:weeks]];
+	}
+
+	//self.Days = [[NSMutableArray alloc] init];
+	for (NSInteger days = 0; days < 7; days++) {
+		//NSLog(@"%ld, count: %ld",(long)days, self.Days.count);
+		[self.Days addObject:[NSNumber numberWithInteger:days]];
+	}
+
+	//self.Hours = [[NSMutableArray alloc] init];
+	for (NSInteger hours = 0; hours < 24; hours++) {
+		[self.Hours addObject:[NSNumber numberWithInteger:hours]];
+	}
+
+	//self.Minutes = [[NSMutableArray alloc] init];
+	for (NSInteger minutes = 0; minutes < 60; minutes+=5) {
+		[self.Minutes addObject:[NSNumber numberWithInteger:minutes]];
+	}
+	//NSLog(@"setupPickerDataArrays: Days: %lu",(unsigned long)self.Days.count);
 }
 
 @end

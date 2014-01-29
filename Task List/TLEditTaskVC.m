@@ -42,7 +42,8 @@
     //setup delegates for removing keyboard
     self.taskNameTextField.delegate = self;
     self.taskDetailsTextView.delegate = self;
-
+	[self.taskDetailsTextView scrollRangeToVisible:NSMakeRange(self.taskDetailsTextView.text.length, 0)];
+	self.taskDetailsTextView.clipsToBounds = YES;
 
 	UISwipeGestureRecognizer *rightSwipe = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(goBackToPreviousScreen)];
     [self.view addGestureRecognizer:rightSwipe];

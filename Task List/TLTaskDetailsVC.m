@@ -41,6 +41,8 @@
     //populate the fields
     self.taskNameLabel.text = self.task.taskName;
     self.taskDetailsLabel.text = self.task.taskDescription;
+
+	
     //[self.taskDetailsLabel sizeToFit];  //doesn't work to top align - save for reference
     
     [self isCompleted:self.task.taskIsCompleted];  //sets switch settings

@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>isFullYear</key>
-	<false/>
+	<true/>
 	<key>hasLeadingZeros</key>
 	<false/>
 	<key>timeStyle</key>
@@ -11,13 +11,15 @@
 	<key>dateStyle</key>
 	<string>Western</string>
 	<key>timeBeforeDueInMinutes</key>
-	<integer>10</integer>
+	<integer>1</integer>
 	<key>timeBeforeDueInHours</key>
-	<integer>2</integer>
+	<integer>1</integer>
 	<key>timeBeforeDueInDays</key>
-	<integer>3</integer>
+	<integer>1</integer>
+	<key>timeBeforeDueInWeeks</key>
+	<integer>1</integer>
 	<key>dateTimeFormatString</key>
-	<string>DATETIME_FORMAT</string>
+	<string>M/d/yyyy h:mm a</string>
 	<key>showWeekday</key>
 	<false/>
 </dict>
