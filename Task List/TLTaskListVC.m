@@ -226,7 +226,7 @@
     BOOL isOverDue = [self isDateGreaterThanDate:[NSDate date] and:task.taskDueDate];
     
     if([task.taskIsCompleted  isEqual: TASK_COMPLETED]){
-		//cell.backgroundColor = [UIColor greenColor];
+		cell.backgroundColor = [UIColor clearColor];
 		cell.imageView.image = [UIImage imageNamed:@"checkbox_checked1.png"];
 		
 	}
@@ -235,7 +235,7 @@
 		cell.imageView.image = [UIImage imageNamed:@"checkbox_unchecked1.png"];
 	}
     else {
-		//cell.backgroundColor = [UIColor yellowColor];
+		cell.backgroundColor = [UIColor clearColor];
 		cell.imageView.image = [UIImage imageNamed:@"checkbox_unchecked1.png"];
 	}
     

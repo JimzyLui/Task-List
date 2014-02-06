@@ -93,6 +93,7 @@
 
 	//set up arrays
 	[self setupPickerDataArrays];
+
 }
 
 -(void)viewWillAppear:(BOOL)animated
